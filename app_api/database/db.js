@@ -7,7 +7,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const connect = () => {
-    setTimeout(() => mongoose.connect(dbURI, {
+    setTimeout(() => mongoose.connect(dbURL, {
         useNewURLParser: true,
         useCreateIndex: true,
         useUnifiedTopology: true
@@ -17,12 +17,12 @@ const connect = () => {
 mongoose.connection.on('connected', () => {
     console.log('connected');
 });
-
+/* ///TypeError: Cannot read properties of undefined (reading 'on') ///
 mongoose.connnection.on('error', err => {
     console.log('Mongoose connection error:' + err);
     return connect();
 });
-
+*/
 mongoose.connection.on('disconnected', () => {
     console.log('Mongoose disconnected');
 });
@@ -68,4 +68,4 @@ process.on('SIGTERM', () => {
 connect();
 
 // bring in the Mongoose Schema
-require('./travlr');
+require('./models/travlr');
