@@ -10,7 +10,6 @@ const register = (req, res) => {
     const user = new User();
     user.name = req.body.name;
     user.email = req.body.email;
-    67
     user.setPassword(req.body.password);
     user.save((err) => {
         if (err) {

@@ -9,8 +9,10 @@ import { TripDataService } from '../services/trip-data.service';
   styleUrls: ['./add-trip.component.css']
 })
 export class AddTripComponent implements OnInit {
+
   addForm: FormGroup;
   submitted = false;
+
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -35,7 +37,7 @@ export class AddTripComponent implements OnInit {
     this.submitted = true;
     if (this.addForm.valid) {
       this.tripService.addTrip(this.addForm.value)
-        .then(data => {
+        .then( data => {
           console.log(data);
           this.router.navigate(['']);
         });
