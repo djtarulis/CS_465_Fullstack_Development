@@ -1,8 +1,6 @@
-<!-- <pre>{{ trips | json }}</pre> -->
-
 <div class="card ml-4" style="width: 18rem;">
   <div class="card-header">{{ trip.name }}</div>
-  <img src="assets/images/{{ trip.image }}" alt="trip thumbnail" class="card-img-top">
+  <img src="assets/images/{{ trip.images }}" alt="trip thumbnail" class="card-img-top">
   <div class="card-body">
     <h6 class="card-subtitle mb-2 text-muted">
         {{ trip.resort }}
@@ -12,5 +10,8 @@
     </p>
     <p class="card-text" [innerHTML]="trip.description">
     </p>
+    <div *ngIf="IsLoggedIn()">
+      <button (click)="editTrip(trip)" class="btn btn-info">Edit</button>
+    </div>
   </div>
 </div>
